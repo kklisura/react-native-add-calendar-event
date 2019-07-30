@@ -53,6 +53,7 @@ static NSString *const _endDate = @"endDate";
 static NSString *const _notes = @"notes";
 static NSString *const _url = @"url";
 static NSString *const _allDay = @"allDay";
+static NSString *const _timeZone = @"timeZone";
 
 static NSString *const MODULE_NAME= @"AddCalendarEvent";
 
@@ -271,6 +272,9 @@ RCT_EXPORT_METHOD(presentEventEditingDialog:(NSDictionary *)options resolver:(RC
     }
     if (options[_allDay]) {
         event.allDay = [RCTConvert BOOL:options[_allDay]];
+    }
+    if (options[_timeZone]) {
+        event.timeZone = [NSTimeZone timeZoneWithName:options[_timeZone]];
     }
     return event;
 }

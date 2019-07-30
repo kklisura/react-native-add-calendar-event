@@ -102,6 +102,7 @@ public class AddCalendarEventModule extends ReactContextBaseJavaModule implement
             if (config.hasKey("location")
                     && config.getString("location") != null) {
                 calendarIntent.putExtra("eventLocation", config.getString("location"));
+                calendarIntent.putExtra("location", config.getString("location"));
             }
 
             if (config.hasKey("notes")
@@ -113,6 +114,12 @@ public class AddCalendarEventModule extends ReactContextBaseJavaModule implement
                 calendarIntent.putExtra("allDay", config.getBoolean("allDay"));
             }
 
+            if (config.hasKey("timeZone")
+                    && config.getString("timeZone") != null) {
+                calendarIntent.putExtra("timeZone", config.getString("timeZone"));
+                calendarIntent.putExtra("eventTimezone", config.getString("timeZone"));
+                calendarIntent.putExtra("calendar_timezone", config.getString("timeZone"));
+            }
 
             getReactApplicationContext().startActivityForResult(calendarIntent, ADD_EVENT_REQUEST_CODE, Bundle.EMPTY);
         } catch (Exception e) {

@@ -19,6 +19,7 @@ declare module "react-native-add-calendar-event" {
     endDate?: string;
     location?: string;
     allDay?: boolean;
+    timeZone?: string;
     /**
      * iOS only
      */
